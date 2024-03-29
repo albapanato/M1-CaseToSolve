@@ -1,0 +1,52 @@
+header ul {
+  padding: 30px 0;
+  display: flex; /* cambia como se ve la lista, un elemento seguido del otro*/
+  justify-content: space-around; /* para dejar espacio entre elementos */
+}
+
+.container {
+  padding: 120px 0;
+}
+
+ul {
+  list-style-type: none; /* quita los puntos de la lista*/
+}
+i {
+  padding: 10px;
+}
+li {
+  padding: 10px;
+}
+h2 {
+  text-align: center;
+  font-size: 25px;
+}
+p {
+  text-align: center;
+}
+.photo-name {
+  display: flex;
+  width: 500px;
+  height: 250px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.name {
+  margin: auto;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 700px) {
+  li {
+    display: none;
+  }
+}
