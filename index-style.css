@@ -1,48 +1,197 @@
-header ul {
-  padding: 30px 0;
-  display: flex; /* cambia como se ve la lista, un elemento seguido del otro*/
-  justify-content: space-around; /* para dejar espacio entre elementos */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.container {
-  padding: 120px 0;
+main {
+  height: 100vh;
+  overflow-x: hidden;
+  perspective: 2px;
 }
-
 ul {
-  list-style-type: none; /* quita los puntos de la lista*/
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 30px;
+  background-color: #000e1e;
+  opacity: 95%;
 }
-i {
-  padding: 10px;
+a {
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  color: #d6e5e5;
 }
 li {
-  padding: 10px;
-}
-h2 {
-  text-align: center;
-  font-size: 25px;
-}
-p {
-  text-align: center;
-}
-.photo-name {
+  list-style-type: none;
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  color: #d6e5e5;
+  padding: 10px 15px;
   display: flex;
-  width: 500px;
-  height: 250px;
-  margin: auto;
-  padding: 40px;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  margin: 10px;
+  box-shadow: none;
+}
+
+i {
+  padding-right: 20px;
+}
+
+.icons img {
+  width: 50px;
+  height: 50px;
+}
+
+.icons img:nth-child(2) {
+  display: none;
+}
+
+.icons:hover img:nth-child(1) {
+  display: none;
+}
+
+.icons:hover img:nth-child(2) {
+  display: flex;
+}
+.icons:hover {
+  opacity: 90%;
+}
+li:hover a {
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  color: #000e1e;
+}
+.icons:hover {
   border-radius: 10px;
-  border: 2px solid;
+  cursor: pointer;
+  list-style-type: none;
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  color: #000e1e;
+  background-color: white;
 }
 
-img {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
+section {
+  padding: 20px;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9ecff;
 }
 
-.name {
+.info-photo {
+  padding: 20px;
+  display: flex;
+  margin-right: 100px;
+  margin-bottom: 200px;
+}
+.info-photo h2 {
+  display: none;
+  padding: 10px;
+  margin-right: 15px;
+  font-size: 35px;
+  font-weight: 800;
+}
+.info-photo p {
+  display: none;
+  padding: 10px;
+  font-size: medium;
+}
+
+.info-photo:hover {
+  padding: 20px;
+  display: flex;
+  margin-right: 100px;
+  margin-bottom: 200px;
+  border: #c9ecff;
+  border-radius: 5px;
+  box-shadow: 1px 2px 20px #c9ecff;
+}
+.info-photo:hover .photo img {
+  margin: 20px;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 16px #c9ecff;
+}
+
+.info-photo:hover .info h2 {
+  transition: 2s;
+  display: block;
+  padding: 10px;
+  margin-right: 15px;
+  font-size: 35px;
+  font-weight: 800;
+}
+.info-photo:hover .info p {
+  transition: 2s;
+  display: block;
+  padding: 10px;
+  font-size: medium;
+}
+
+.info {
   margin: auto;
-  line-height: 1.5;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+.photo img {
+  margin: 20px;
+  width: 350px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 16px #c9ecff;
+}
+
+.no-parallax {
+  background-color: #000e1e;
+  z-index: 999;
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.bg::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./src/img-background/mundo.jpg");
+  background-size: cover;
+}
+.contact {
+  width: 60px;
+}
+h1 {
+  padding: 10px;
+  font-size: 30px;
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 800;
+  font-style: normal;
 }
 
 @media only screen and (max-width: 700px) {

@@ -4,39 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=MedievalSharp&family=Rubik+Scribble&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <header>
+    <main>
       <ul>
-        <i>(icono)</i>
-        <li>Añadir sección</li>
-        <i>(icono)</i>
-        <li>Añadir sección</li>
-        <i>(icono)</i>
-        <li>Añadir sección</li>
-        <i>(icono)</i>
-        <li>Añadir sección</li>
+        <li class="icons">
+          <span><a href="">CV</a></span>
+        </li>
+
+        <li class="icons">
+          <span><a href="">Proyectos</a></span>
+        </li>
+
+        <li class="icons">
+          <i>
+            <img src="src/icons/codigo.png" alt="" />
+            <img src="src/icons/codigo.gif" alt=""
+          /></i>
+          <span><a href="">Lenguaje</a></span>
+        </li>
+        <li class="icons">
+          <i>
+            <img src="src/icons/icons8-avión-de-papel-48.png" alt="" />
+            <img src="src/icons/icons8-avión-de-papel.gif" alt=""
+          /></i>
+          <span><a href="#contacto">Contacto</a></span>
+        </li>
       </ul>
-    </header>
-    <div class="container">
-      <div class="photo-name">
-        <div class="photo">
-          <img
-            src="C:\Users\44770\Master\2403VDWO\Modulos\1. Modulo\Case to be solved\src\FOTO IMMUNE.jpg"
-            alt=""
-          />
+      <section class="no-parallax">
+        <div class="info-photo">
+          <div class="info">
+            <h2>Alba Panato Alegre</h2>
+            <p>
+              Estudiante de programación<br />y diseño web en<br />
+              IMMUNE Technology Instute.
+            </p>
+          </div>
+          <div class="photo">
+            <img
+              src="C:\Users\44770\Master\2403VDWO\Modulos\1. Modulo\Case to be solved\M1-CaseToSolve\src\foto-portada\FOTO IMMUNE.jpg"
+              alt=""
+            />
+          </div>
         </div>
-        <div class="name">
-          <h2>Alba Panato Alegre</h2>
-          <p>Estudiante de programación en IMMUNE Technology Instute.</p>
-        </div>
-      </div>
-      <div class="info"></div>
-    </div>
-    <div class="parallax">
-      <img src="" alt="" />
-    </div>
-    <div class="contact"></div>
+      </section>
+      <section class="parallax bg"></section>
+      <section class="no-parallax">
+        <img class="contact" src="src/icons/icons8-nuevo-post-48.png" alt="" />
+        <h1 id="contacto">Email : alba.panato.alegre.apa @ gmail.com</h1>
+      </section>
+    </main>
   </body>
 </html>
