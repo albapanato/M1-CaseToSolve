@@ -1,3 +1,24 @@
+@keyframes expand {
+  0% {
+    opacity: 0%;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0%);
+  }
+}
+@keyframes replay {
+  0% {
+    opacity: 0%;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(100%);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -16,6 +37,7 @@ main {
   overflow-x: hidden;
   perspective: 2px;
 }
+
 ul {
   display: flex;
   justify-content: space-evenly;
@@ -24,11 +46,14 @@ ul {
   opacity: 95%;
 }
 a {
+  text-decoration: none;
   font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
   font-style: normal;
   color: #d6e5e5;
   text-align: center;
+  padding-left: 10px;
+  align-items: center;
 }
 li {
   list-style-type: none;
@@ -43,12 +68,14 @@ li {
 
 .icons {
   display: flex;
+  align-items: center;
   margin: 10px;
   box-shadow: none;
 }
 
-i {
-  padding-right: 20px;
+.icons > i {
+  display: flex;
+  align-items: center;
 }
 
 .icons img {
@@ -67,9 +94,7 @@ i {
 .icons:hover img:nth-child(2) {
   display: flex;
 }
-.icons:hover {
-  opacity: 90%;
-}
+
 li:hover a {
   font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
@@ -77,6 +102,9 @@ li:hover a {
   color: #000e1e;
 }
 .icons:hover {
+  display: flex;
+  align-items: center;
+  opacity: 90%;
   border-radius: 10px;
   cursor: pointer;
   list-style-type: none;
@@ -100,38 +128,31 @@ section {
 }
 
 .info-photo {
-  padding: 20px;
   display: flex;
-  margin-right: 100px;
-  margin-bottom: 200px;
+  overflow: hidden;
 }
+
 .info-photo h2 {
-  display: none;
-  padding: 10px;
+  display: flex;
+  align-items: flex-start;
   margin-right: 15px;
   font-size: 35px;
   font-weight: 800;
 }
 .info-photo p {
   display: none;
-  padding: 10px;
   font-size: medium;
+  animation: 3s ease expand;
 }
 
 .info-photo:hover {
   padding: 20px;
   display: flex;
-  margin-right: 100px;
-  margin-bottom: 200px;
-  border: #c9ecff;
-  border-radius: 5px;
-  box-shadow: 1px 2px 20px #c9ecff;
+  text-align: center;
 }
 .info-photo:hover .photo img {
-  margin: 20px;
-  width: 300px;
   border-radius: 5px;
-  box-shadow: 1px 1px 16px #c9ecff;
+  box-shadow: 1px 1px 16px #3b6579;
 }
 
 .info-photo:hover .info h2 {
@@ -157,9 +178,8 @@ section {
 
 .photo img {
   margin: 20px;
-  width: 350px;
   border-radius: 5px;
-  box-shadow: 1px 1px 16px #c9ecff;
+  box-shadow: 1px 1px 16px #3b6579;
 }
 
 .no-parallax {
@@ -187,18 +207,22 @@ section {
 
 h2 {
   padding: 10px;
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
   font-style: normal;
 }
 .wrapper {
+  text-align: center;
+  font-size: 35px;
+}
+
+.contactame {
   font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
   font-style: normal;
   color: #e4eaf1;
-  text-align: center;
-  font-size: 30px;
+  padding: 10px;
 }
 
 .contacto1 > a {
@@ -206,14 +230,60 @@ h2 {
   align-items: center;
 }
 .contacto2 > a {
-  text-align: center;
   display: flex;
   align-items: center;
-  font-size: 20px;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 100%;
+  }
+  50% {
+    opacity: 30%;
+  }
+  100% {
+    transform: rotate(365deg);
+    opacity: 100%;
+  }
+}
+.gif {
+  animation: 1s ease spin infinite;
+}
+
+@media screen and (max-width: 1050px) {
+  span {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 900px) {
-  li {
+  span {
+    display: none;
+  }
+  .info-photo {
+    padding: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .bg::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("./src/img-background/dado.jpg");
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .photo img {
+  }
+  .contacto1,
+  .contacto2 {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+  .contacto1 > a > h2,
+  .contacto2 > a > h2 {
     display: none;
   }
 }
