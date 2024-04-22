@@ -40,11 +40,27 @@ section {
   background-size: 100%;
   z-index: -1;
 }
+@keyframes spin1 {
+  0% {
+    transform: rotate(0deg);
+    opacity: 100%;
+  }
+  50% {
+    transform: rotate(-180deg);
+    opacity: 90%;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 100%;
+  }
+}
 
 .bg::after {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../pagina-lenguaje/src/servidor.jpg");
+    url("../index-portada/src/img-background/frame2.avif");
+  animation: 2s spin1 ease;
   background-size: cover;
+  background-position: center;
 }
 /*</ para conseguir el efecto parallax >*/
 
@@ -56,32 +72,36 @@ section {
 
 /*<estilo al menu>*/
 .menu {
+  padding: 0;
   position: fixed;
+  top: 30%;
+  text-align: center;
   z-index: 9999;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   margin: auto;
-  justify-content: space-evenly;
-  font-size: 20px;
-  background-color: #000e1e;
+  /* justify-content: space-evenly; */
+  font-size: 16px;
+  /* background-color: #000e1e; */
   opacity: 95%;
   height: 80px;
+  border-radius: 10px;
 }
 a {
   text-decoration: none;
-  font-family: "Rubik Scribble", system-ui;
-  font-weight: 800;
-  font-style: normal;
+  /* font-family: "Rubik Scribble", system-ui;
+  font-style: normal; */
+  font-weight: 900;
   color: #d6e5e5;
   text-align: center;
-  padding-left: 10px;
   align-items: center;
+  margin-left: 20px;
 }
 li {
   list-style-type: none;
-  font-family: "Rubik Scribble", system-ui;
+  /* font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
-  font-style: normal;
+  font-style: normal; */
   color: #d6e5e5;
   padding: 10px 15px;
   display: flex;
@@ -103,6 +123,7 @@ li {
 .icons img {
   width: 50px;
   height: 50px;
+  border-radius: 10px;
 }
 
 .icons img:nth-child(2) {
@@ -118,10 +139,8 @@ li {
 }
 
 li:hover a {
-  font-family: "Rubik Scribble", system-ui;
-  font-weight: 800;
-  font-style: normal;
-  color: #000e1e;
+  color: #b10ec7;
+  font-weight: 900;
 }
 .icons:hover {
   display: flex;
@@ -129,29 +148,111 @@ li:hover a {
   opacity: 90%;
   cursor: pointer;
   list-style-type: none;
-  font-family: "Rubik Scribble", system-ui;
-  font-weight: 800;
   font-style: normal;
-  color: #000e1e;
-  background-color: white;
+  color: #cb1fee;
+  font-weight: 900;
+  background-color: rgb(42, 34, 48);
 }
 
 /*</estilo al menu>*/
 
-/* estilo a la portada*/
+/* estilo a la portada efecto marco*/
 
 .portada {
-  font-size: 100px;
+  position: relative;
+  font-size: 108px;
+  padding: 70px;
   width: 75%;
-  text-align: center;
+  height: 80%;
+  overflow: hidden;
   font-weight: 700;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes frame1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.portada span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #ff1c83);
+  animation: frame1 6s linear infinite;
+  box-shadow: 0px 4px 16px #c9ecff;
+}
+@keyframes frame2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+.portada span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #781a7e);
+  animation: frame2 6s linear infinite;
+  animation-delay: 1s;
+  box-shadow: 0px 4px 16px #c9ecff;
+}
+
+@keyframes frame3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.portada span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to left, transparent, #ff1c83);
+  animation: frame3 6s linear infinite;
+  box-shadow: 0px 4px 16px #c9ecff;
+}
+
+@keyframes frame4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.portada span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #781a7e);
+  animation: frame4 6s linear infinite;
+  animation-delay: 2s;
+  box-shadow: 0px 4px 16px #c9ecff;
 }
 
 /*<estilo estilo a la info y a la foto >*/
 
 @keyframes transparent {
   0% {
-    opacity: 0%;
+    opacity: 30%;
   }
   100% {
     opacity: 100%;
@@ -164,17 +265,18 @@ li:hover a {
 }
 .nombre {
   text-align: center;
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 900;
-  margin: 100px;
+  margin: 30px;
+  letter-spacing: 5px;
 }
 .info-photo {
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 20px;
-  max-width: 80%;
+  padding-left: 20px;
+  max-width: 70%;
   animation: 3s ease transparent;
   margin: auto;
 }
@@ -210,7 +312,6 @@ li:hover a {
   border-radius: 5px;
   box-shadow: 1px 1px 16px #3b6579;
   width: 550px;
-  opacity: 90%;
 }
 /*</estilo a la info y a la foto >*/
 
@@ -273,7 +374,7 @@ li:hover a {
   .bg::after {
     /* el efecto paralax no queda del todo fino en modo mobil, cambio a background-size: contain para que se vea mejor*/
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("./src/img-background/dado.jpg");
+      url("./src/img-background/frame2.avif");
     background-size: contain;
   }
 }
