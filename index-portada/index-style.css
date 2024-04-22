@@ -1,24 +1,4 @@
-@keyframes expand {
-  0% {
-    opacity: 0%;
-    transform: translateY(100%);
-  }
-  100% {
-    opacity: 100%;
-    transform: translateY(0%);
-  }
-}
-@keyframes replay {
-  0% {
-    opacity: 0%;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 100%;
-    transform: translateY(100%);
-  }
-}
-
+/*< para conseguir el efecto parallax > */
 *,
 *::before,
 *::after {
@@ -32,18 +12,60 @@
   font-style: normal;
 }
 
-main {
+section {
+  padding: 20px;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9ecff;
+}
+
+.no-parallax {
+  background-color: #000e1e;
+  z-index: 999;
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.bg::after {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../pagina-lenguaje/src/servidor.jpg");
+  background-size: cover;
+}
+/*</ para conseguir el efecto parallax >*/
+
+.content {
   height: 100vh;
   overflow-x: hidden;
   perspective: 2px;
 }
 
-ul {
+/*<estilo al menu>*/
+.menu {
+  position: fixed;
+  z-index: 9999;
   display: flex;
+  align-items: center;
+  margin: auto;
   justify-content: space-evenly;
-  font-size: 30px;
+  font-size: 20px;
   background-color: #000e1e;
   opacity: 95%;
+  height: 80px;
 }
 a {
   text-decoration: none;
@@ -105,7 +127,6 @@ li:hover a {
   display: flex;
   align-items: center;
   opacity: 90%;
-  border-radius: 10px;
   cursor: pointer;
   list-style-type: none;
   font-family: "Rubik Scribble", system-ui;
@@ -115,126 +136,109 @@ li:hover a {
   background-color: white;
 }
 
-section {
-  padding: 20px;
-  transform-style: preserve-3d;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #c9ecff;
+/*</estilo al menu>*/
+
+/* estilo a la portada*/
+
+.portada {
+  font-size: 100px;
+  width: 75%;
+  text-align: center;
+  font-weight: 700;
 }
 
+/*<estilo estilo a la info y a la foto >*/
+
+@keyframes transparent {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.wrapper-info {
+  display: block;
+  margin: auto;
+}
+.nombre {
+  text-align: center;
+  font-size: 65px;
+  font-weight: 900;
+  margin: 100px;
+}
 .info-photo {
   display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-}
-
-.info-photo h2 {
-  display: flex;
-  align-items: flex-start;
-  margin-right: 15px;
-  font-size: 35px;
-  font-weight: 800;
-}
-.info-photo p {
-  display: none;
-  font-size: medium;
-  animation: 3s ease expand;
-}
-
-.info-photo:hover {
   padding: 20px;
-  display: flex;
-  text-align: center;
-}
-.info-photo:hover .photo img {
-  border-radius: 5px;
-  box-shadow: 1px 1px 16px #3b6579;
-}
-
-.info-photo:hover .info h2 {
-  transition: 2s;
-  display: block;
-  padding: 10px;
-  margin-right: 15px;
-  font-size: 35px;
-  font-weight: 800;
-}
-.info-photo:hover .info p {
-  transition: 2s;
-  display: block;
-  padding: 10px;
-  font-size: medium;
+  max-width: 80%;
+  animation: 3s ease transparent;
+  margin: auto;
 }
 
 .info {
   margin: auto;
   line-height: 2;
-  letter-spacing: 1px;
+  padding: 20px;
+  align-items: center;
+  margin: 50px;
 }
 
+/* .info-photo:hover {
+  display: flex;
+  text-align: center;
+} */
+
+.info-photo p {
+  /* color: transparent; */
+  transition: 1.5s;
+  font-size: 38px;
+
+  letter-spacing: 6px;
+  line-height: 1.3;
+}
+
+/* .info-photo:hover .info p {
+  display: block;
+  padding: 10px;
+  color: #e4eaf1;
+} */
 .photo img {
-  margin: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px 16px #3b6579;
+  width: 550px;
+  opacity: 90%;
 }
+/*</estilo a la info y a la foto >*/
 
-.no-parallax {
-  background-color: #000e1e;
-  z-index: 999;
-}
+/* <estilo para la experiencia y proyectos>
+???
+< /estilo para la experiencia y proyectos>*/
 
-.parallax::after {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  transform: translateZ(-1px) scale(1.5);
-  background-size: 100%;
-  z-index: -1;
-}
-
-.bg::after {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./src/img-background/mundo.jpg");
-  background-size: cover;
-}
-
-h2 {
-  padding: 10px;
-  font-size: 30px;
-  font-family: "Rubik Scribble", system-ui;
-  font-weight: 800;
-  font-style: normal;
-}
-.wrapper {
-  text-align: center;
+.wrapper > .contactame {
   font-size: 35px;
-}
-
-.contactame {
   font-family: "Rubik Scribble", system-ui;
   font-weight: 800;
   font-style: normal;
   color: #e4eaf1;
   padding: 10px;
+  font-size: 16px;
 }
 
-.contacto1 > a {
+/* .contacto1 > a {
   display: flex;
   align-items: center;
 }
 .contacto2 > a {
   display: flex;
   align-items: center;
-}
+} */
 
 @keyframes spin {
+  /*para aplicar a la imagen de icons8-nuevo-post-48 para darle animacion*/
   0% {
     transform: rotate(0deg);
     opacity: 100%;
@@ -267,6 +271,7 @@ h2 {
   }
 
   .bg::after {
+    /* el efecto paralax no queda del todo fino en modo mobil, cambio a background-size: contain para que se vea mejor*/
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("./src/img-background/dado.jpg");
     background-size: contain;
