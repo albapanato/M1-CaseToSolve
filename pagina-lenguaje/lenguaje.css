@@ -1,51 +1,183 @@
+@keyframes fondo {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
 body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
-  background-image: url("./src/frame.avif");
-  width: 90vw;
-  height: 90vh;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+  background: #0e0117;
+  margin-top: 20px;
+}
+
+/* < para posicionar el video en el fondo de la pagina >*/
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 99.99vw;
+  height: 99.99vh;
+  object-fit: fill;
+}
+
+.capa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 100%;
+  height: 100%; */
+  /* background: #161414; sin color mejor*/
+  opacity: 0.5;
+  mix-blend-mode: overlay; /*mix-blend-mode: tiene muchisimas propiedades, pero para los layouts se utiliza la propiedad overlay - oscurece o aclara la capa dependiendo del color fondo*/
+}
+/* </ para posicionar el video en el fondo de la pagina > */
+
+main {
+  border: none;
 }
 
 .inicio a {
-  text-decoration: none;
+  padding: 20px;
+  width: 90%;
+  height: 60px;
+  position: relative; /* < para posicionar la barra de inicio por encima del video >*/
+  z-index: 2; /* < para posicionar la barra de inicio por encima del video >*/
   display: flex;
   justify-content: center;
-  padding: 30px;
-  color: rgb(224, 231, 236);
-  font-size: 40px;
+  margin: auto;
+  text-decoration: none;
+  opacity: 80%;
+  background: linear-gradient(#2c0849, #5c1296);
 
-  background-color: black;
-  border-radius: 5px;
+  span {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    font-size: 30px;
+    color: #969299;
+    text-shadow: 2px 8px 16px #18032c;
+    font-weight: 900;
+    i {
+      padding-right: 10px;
+    }
+  }
+  span:hover {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 8px 16px #18032c;
+    opacity: 100%;
+  }
+
+  span > i > img:nth-child(2) {
+    display: none;
+  }
+
+  span:hover > i > img:nth-child(1) {
+    display: none;
+  }
+
+  span:hover > i > img:nth-child(2) {
+    display: block;
+  }
 }
-a:hover {
-  font-size: 42px;
-}
+
+/* < estilo contenedor >*/
 
 .container {
-  padding: 100px;
-  height: 70vh;
+  height: 800px;
+  padding: 20px;
   color: aliceblue;
-  font-size: 35px;
-  display: grid;
-  text-align: center;
-  justify-content: center;
+  display: flex;
+  position: relative;
+  z-index: 2;
 }
 
 .html,
 .css,
 .js {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 200px;
   padding: 40px;
   border: 4px solid aliceblue;
-  border-radius: 10px;
+
   margin: auto;
   background-color: rgb(54, 59, 65);
   opacity: 85%;
+  font-size: 30px;
+}
+
+.html:hover,
+.css:hover,
+.js:hover {
+  width: 180px;
+  height: 180px;
   display: flex;
+  flex-direction: column;
+
   align-items: center;
-  width: 80vw;
-  justify-content: space-around;
+  background-color: #e57aeb;
+  opacity: 100%;
+  color: #ffffff;
+  text-shadow: 2px 8px 6px #0e0117;
+  border: 5px solid #4f2472;
+  opacity: 90%;
+  font-size: 50px;
+  gap: 20px;
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 30px;
+    display: block;
+    color: #ffffff;
+    text-shadow: 2px 8px 6px #dabeec;
+    text-shadow: none;
+    font-size: 30px;
+    font-weight: 700;
+    animation: 2s ease boing infinite;
+  }
+}
+
+@keyframes boing {
+  0% {
+    transform: translateY(20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }
 
 .js > i :nth-child(2) {
@@ -58,66 +190,45 @@ a:hover {
 
 .js:hover img:nth-child(2) {
   display: flex;
+  flex-direction: column;
   border-radius: 5px;
+
   .certificado img {
     display: flex;
-    transition-delay: 1s ease all;
   }
 }
+
 .html:hover > i > .gif,
 .css:hover > i > .gif {
-  text-align: center;
-  animation: 1.5s ease spin infinite;
+  animation: 5s ease spin infinite; /* le da estilo al la imagen para convertirla en "gif"*/
 }
+
 .html:hover img,
 .css:hover img {
+  border-radius: 5px;
   display: flex;
   animation: none;
 }
 
 .certificado img {
   max-width: 250px;
-  border: 5px solid rgb(14, 17, 18);
+  border: 5px solid;
+  box-shadow: 2px 8px 6px #0e0117;
   display: none;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 a {
   display: none;
 }
 
-.html:hover,
-.css:hover,
-.js:hover {
-  background-color: rgb(116, 146, 147);
-  opacity: 100%;
-  color: rgb(14, 17, 18);
-  border: 5px solid rgb(14, 17, 18);
-  a {
-    cursor: pointer;
-    padding: 30px;
-    display: block;
-    color: rgb(41, 43, 50);
-    text-shadow: none;
-    font-size: 18px;
-  }
-}
+/* </ estilo contenedor >*/
 
-@media screen and (max-width: 1200px) {
-  .inicio a {
-    font-size: 30px;
-  }
-
-  a:hover {
-    font-size: 32px;
+@media screen and (max-width: 1500px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: space-evenly;
   }
   .html,
   .css,
@@ -126,7 +237,6 @@ a {
     flex-direction: column;
     margin: auto;
     text-align: center;
-    font-size: 30px;
   }
 }
 @media screen and (max-width: 800px) {
