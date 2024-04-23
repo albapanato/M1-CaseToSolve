@@ -82,7 +82,6 @@ body {
 
 .footer {
   justify-content: flex-start;
-  height: 50vh;
 }
 
 .no-parallax {
@@ -127,12 +126,12 @@ body {
   display: flex;
   align-items: center;
   margin: auto;
-  justify-content: space-evenly;
+  justify-content: center;
   font-size: 16px;
   background-color: #000e1e;
   opacity: 95%;
   height: 80px;
-  width: 99.99999%;
+  width: 99.99%;
 }
 
 a {
@@ -306,6 +305,7 @@ li:hover a {
 /* </ estilo portada efecto marco>*/
 
 /*<estilo a la info y a la foto-perfil>*/
+
 .wrapper-info {
   display: flex;
   margin: auto;
@@ -352,6 +352,11 @@ li:hover a {
 /*</estilo a la info y a la foto-perfil >*/
 
 /*<estilo al footer>*/
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
 .wrapper > .contactame {
   font-size: 30px;
@@ -372,7 +377,62 @@ li:hover a {
   animation: 1s ease spin infinite;
 }
 
-/*<estilo al footer>*/
+.formulario {
+  width: 50%;
+  margin-right: 110px;
+}
+
+.contenedor-formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 30px;
+  padding: 30px;
+  font-size: 1.4rem;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  input {
+    height: 40px;
+  }
+
+  input,
+  textarea {
+    font-size: 1.3rem;
+    border-radius: 8px;
+    background-color: #8ab4ca;
+    width: 100%;
+    padding-left: 10px;
+  }
+}
+
+.email,
+.consulta {
+  grid-column-start: span 2;
+}
+
+.consulta {
+  grid-row-start: span 2;
+}
+
+button {
+  grid-column: 2/3;
+  border-radius: 8px;
+  width: 150px;
+  height: 50px;
+  justify-self: end;
+  font-size: 1.2rem;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: #fc67f4;
+  }
+}
+
+/*</estilo al footer>*/
 
 @media screen and (max-width: 1350px) {
   .portada {
@@ -409,6 +469,13 @@ li:hover a {
     font-size: 28px;
     max-width: 400px;
   }
+  .icons > a > span {
+    display: none;
+  }
+
+  .formulario {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 1050px) {
@@ -432,10 +499,6 @@ li:hover a {
     font-size: 5.5rem;
   }
 
-  .icons > a > span {
-    display: none;
-  }
-
   /* el efecto paralax no queda del todo fino en modo mobil, cambio a background-size: contain para que se vea mejor*/
   .bg::after {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -451,17 +514,21 @@ li:hover a {
     width: 70px;
     height: 70px;
   }
+
   .info-photo {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-  }
-  .info-photo {
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
     max-width: 100%;
   }
 
-  .photo img {
-    width: 90%;
+  .info-photo > .photo > img {
+    padding: 10px;
+    margin: auto;
+    width: 70%;
   }
 
   .sobre-mi {
@@ -470,22 +537,28 @@ li:hover a {
   }
 
   .info-photo p {
-    font-size: 40px;
-    max-width: 700px;
-  }
-
-  .footer {
-    max-height: 30vh;
-    margin: auto;
+    font-size: 30px;
+    max-width: 600px;
+    text-align: left;
   }
 
   .wrapper {
     margin: auto;
+    flex-direction: column-reverse;
   }
   .contactame > ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-left: 0;
+  }
+
+  .formulario {
+    width: 100%;
+  }
+  .nombre-formulario,
+  .apellido {
+    grid-column: span 2;
   }
 }
 
@@ -572,6 +645,9 @@ li:hover a {
     max-width: 85%;
   }
 
+  .no-parallax .footer {
+    height: 200px;
+  }
   .footer {
     justify-content: center;
   }
@@ -580,12 +656,12 @@ li:hover a {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
     .contactame > ul {
-      padding: 5px;
-      margin: 0;
+      padding-left: 0;
       display: flex;
-      flex-wrap: wrap;
+      li {
+        padding: 0;
+      }
     }
   }
 }
