@@ -1,4 +1,55 @@
-/*< para conseguir el efecto parallax > */
+/* <keyframes: >*/
+
+/* animacion para img "icons8-nuevo-post-48" (class="gif"- se encuentra en el div class="footer")*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 100%;
+  }
+  50% {
+    opacity: 30%;
+  }
+  100% {
+    transform: rotate(365deg);
+    opacity: 100%;
+  }
+}
+
+/* efecto para fondo de la info "sobre mi" - animation: (bg::after) */
+@keyframes opacity {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 96%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* efecto para las letras de la info "sobre mi" - animation: (.info-photo) */
+
+@keyframes transparent {
+  0% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* @keyframes frame1, frame2, frame3, frame4 ,
+animation: (.portada span:nth-child(1), 
+.portada span:nth-child(2), 
+.portada span:nth-child(3), 
+.portada span:nth-child(4))
+
+efecto marco cuadrado de la portada*/
+
+/* </keyframes: >*/
+
+/*< efecto parallax > */
 *,
 *::before,
 *::after {
@@ -24,6 +75,11 @@ section {
   color: #c9ecff;
 }
 
+body {
+  background-color: #000e1e;
+  max-width: fit-content;
+}
+
 .footer {
   justify-content: flex-start;
   height: 50vh;
@@ -45,32 +101,22 @@ section {
   background-size: 100%;
   z-index: -1;
 }
-@keyframes opacity {
-  0% {
-    opacity: 100%;
-  }
-  50% {
-    opacity: 95%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
 
 .bg::after {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../index-portada/src/img-background/frame2.avif");
-  animation: 2s opacity ease infinite;
-  background-size: cover;
-  background-position: center;
+    /*<  efecto parallax >*/
+      url("../index-portada/src/img-background/frame2.avif"); /*<  imagen de fondo >*/
+  animation: 2s opacity ease infinite; /* para darle efecto al fondo de la info "sobre mi"*/
+  background-size: cover; /*< parallax: ajustar la vista de la imagen >*/
+  background-position: center; /*<efecto parallax: centrarla posicion de la imagen >*/
 }
-/*</ para conseguir el efecto parallax >*/
 
 .content {
   height: 100vh;
   overflow-x: hidden;
   perspective: 2px;
 }
+/*</efecto parallax >*/
 
 /*<estilo al menu>*/
 .menu {
@@ -86,17 +132,17 @@ section {
   background-color: #000e1e;
   opacity: 95%;
   height: 80px;
-  width: 99%;
+  width: 99.99999%;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; /* quita el subrayado e la etiueta <a>*/
   color: #faffff;
   text-align: center;
 }
 
 li {
-  list-style-type: none;
+  list-style-type: none; /* quita el punto de la etiueta <li>*/
   color: #d6e5e5;
   padding: 10px 15px;
 }
@@ -113,7 +159,7 @@ li {
 .icons {
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 20px;
   box-shadow: none;
 }
 
@@ -123,11 +169,12 @@ li {
 }
 
 .icons img {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 4px;
 }
 
+/* <efecto a las imagenes para que al hacer hoover se vea gif>*/
 .icons img:nth-child(2) {
   display: none;
 }
@@ -139,30 +186,28 @@ li {
 .icons:hover img:nth-child(2) {
   display: flex;
 }
+/*</efecto a las imagenes para que al hacer hoover se vea gif>*/
 
 li:hover a {
   color: #fc67f4;
-  /* font-weight: 900; */
 }
 .icons:hover {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   opacity: 90%;
   cursor: pointer;
   list-style-type: none;
   font-style: normal;
   font-weight: 900;
 }
-
 /*</estilo al menu>*/
 
-/* estilo a la portada efecto marco*/
-
+/* < estilo portada efecto marco>*/
 .portada {
   position: relative;
   font-size: 6rem;
-  padding: 70px;
-  width: 75%;
+  padding: 40px;
+  width: 1200px;
   overflow: hidden;
   font-weight: 700;
   justify-content: center;
@@ -171,23 +216,15 @@ li:hover a {
 
 .titulo {
   font-weight: 900;
-  background: linear-gradient(90deg, #3463ee, #f537f6);
+  background: linear-gradient(90deg, #0a43ee, #f537f6); /*letras de nombre*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .nombre {
-  font-size: 7rem;
-  letter-spacing: -12px;
-  word-spacing: 10px;
-}
-
-.sobre-mi {
-  width: fit-content;
-  padding-right: 10px;
-  font-size: 4rem;
-  letter-spacing: -6px;
-  word-spacing: 4px;
+  font-size: 7rem; /*letras de nombre*/
+  letter-spacing: -12px; /*letras de nombre*/
+  word-spacing: 10px; /*letras de nombre*/
 }
 
 @keyframes frame1 {
@@ -266,18 +303,9 @@ li:hover a {
   animation: frame4 6s linear infinite;
   box-shadow: 0px 4px 16px #c9ecff;
 }
+/* </ estilo portada efecto marco>*/
 
-/*<estilo estilo a la info y a la foto >*/
-
-@keyframes transparent {
-  0% {
-    opacity: 30%;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
-
+/*<estilo a la info y a la foto-perfil>*/
 .wrapper-info {
   display: flex;
   margin: auto;
@@ -298,7 +326,14 @@ li:hover a {
   margin: auto;
   line-height: 2;
   align-items: center;
-  padding-left: 20px;
+}
+
+.sobre-mi {
+  width: fit-content;
+  padding-right: 10px;
+  font-size: 4rem;
+  letter-spacing: -6px;
+  word-spacing: 4px;
 }
 
 .info-photo p {
@@ -306,6 +341,7 @@ li:hover a {
   font-size: 30px;
   font-weight: 700;
   line-height: 1.3;
+  max-width: 400px;
 }
 
 .photo img {
@@ -313,21 +349,18 @@ li:hover a {
   box-shadow: 1px 1px 16px #3b6579;
   width: 500px;
 }
-/*</estilo a la info y a la foto >*/
+/*</estilo a la info y a la foto-perfil >*/
+
+/*<estilo al footer>*/
 
 .wrapper > .contactame {
-  font-size: 35px;
-  font-family: "Rubik Scribble", system-ui;
-  font-weight: 800;
-  font-style: normal;
-  color: #e4eaf1;
-  padding: 10px;
-  font-size: 16px;
+  font-size: 30px;
 }
 
 .contactame > ul > li > a {
   display: flex;
   align-items: flex-start;
+  align-items: center;
   span {
     padding-left: 10px;
     font-size: 1.5rem;
@@ -335,46 +368,224 @@ li:hover a {
   }
 }
 
-@keyframes spin {
-  /*para aplicar a la imagen de icons8-nuevo-post-48 para darle animacion*/
-  0% {
-    transform: rotate(0deg);
-    opacity: 100%;
-  }
-  50% {
-    opacity: 30%;
-  }
-  100% {
-    transform: rotate(365deg);
-    opacity: 100%;
-  }
-}
 .gif {
   animation: 1s ease spin infinite;
 }
 
-@media screen and (max-width: 1050px) {
-  span {
-    font-size: 18px;
+/*<estilo al footer>*/
+
+@media screen and (max-width: 1350px) {
+  .portada {
+    padding: 20px;
+    width: 85%;
+  }
+
+  .info-photo {
+    max-width: 80%;
   }
 }
-@media screen and (max-width: 900px) {
-  span {
+
+@media screen and (max-width: 1200px) {
+  /* resolucion para dispositivos grandes*/
+
+  .portada {
+    padding: 15px;
+    width: 90%;
+  }
+  .info-photo {
+    max-width: 95%;
+  }
+
+  .photo img {
+    width: 480px;
+  }
+
+  .sobre-mi {
+    font-size: 3rem;
+    word-spacing: 3px;
+  }
+
+  .info-photo p {
+    font-size: 28px;
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .portada {
+    font-size: 5rem;
+  }
+
+  .nombre {
+    font-size: 6.5rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  /* resolucion para portatiles (min:768px approx)*/
+
+  .portada {
+    max-width: 100%;
+    font-size: 4.5rem;
+  }
+
+  .nombre {
+    font-size: 5.5rem;
+  }
+
+  .icons > a > span {
     display: none;
+  }
+
+  /* el efecto paralax no queda del todo fino en modo mobil, cambio a background-size: contain para que se vea mejor*/
+  .bg::after {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("./src/img-background/frame2.avif");
+    background-repeat: round;
+    background-size: cover;
+  }
+  .menu {
+    height: fit-content;
+    opacity: 80%;
+  }
+  .icons img {
+    width: 70px;
+    height: 70px;
   }
   .info-photo {
     padding: 20px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+  }
+  .info-photo {
+    max-width: 100%;
   }
 
-  .bg::after {
-    /* el efecto paralax no queda del todo fino en modo mobil, cambio a background-size: contain para que se vea mejor*/
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("./src/img-background/frame2.avif");
-    background-size: contain;
+  .photo img {
+    width: 90%;
+  }
+
+  .sobre-mi {
+    font-size: 5rem;
+    word-spacing: 3px;
+  }
+
+  .info-photo p {
+    font-size: 40px;
+    max-width: 700px;
+  }
+
+  .footer {
+    max-height: 30vh;
+    margin: auto;
+  }
+
+  .wrapper {
+    margin: auto;
+  }
+  .contactame > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 768px) {
+  /* maxima resolucion para tablets (min: 576px approx.)*/
+
+  .portada {
+    font-size: 3.5rem;
+  }
+
+  .nombre {
+    font-size: 4.5rem;
+  }
+
+  .icons img {
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .sobre-mi {
+    font-size: 4rem;
+    word-spacing: 3px;
+  }
+
+  .info-photo p {
+    font-size: 25px;
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 627px) {
+  /* resolucion de mobiles (min: 360px) */
+
+  .icons img {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+
+    li {
+      margin: 0;
+    }
+    img {
+      margin: 0;
+    }
+  }
+
+  .portada {
+    font-size: 28px;
+  }
+
+  .nombre {
+    font-size: 40px;
+    letter-spacing: -6px; /*letras de nombre*/
+    word-spacing: 8px; /*letras de nombre*/
+  }
+  .info {
+    padding: 20px;
+  }
+
+  .info-photo {
+    gap: 20px;
+  }
+
+  .photo {
+    text-align: center;
+    img {
+      width: 80%;
+    }
+  }
+
+  .sobre-mi {
+    font-size: 40px;
+    word-spacing: 6px;
+    margin: auto;
+  }
+
+  .info-photo p {
+    font-size: 20px;
+    max-width: 85%;
+  }
+
+  .footer {
+    justify-content: center;
+  }
+
+  .wrapper {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    .contactame > ul {
+      padding: 5px;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
