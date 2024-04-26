@@ -203,8 +203,9 @@ li:hover a {
 
 /* < estilo portada efecto marco>*/
 .portada {
+  margin-top: 80px;
   position: relative;
-  font-size: 6rem;
+  font-size: 5rem;
   padding: 40px;
   width: 1200px;
   overflow: hidden;
