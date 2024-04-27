@@ -481,7 +481,7 @@ button {
 
 @media screen and (max-width: 1050px) {
   .portada {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
 
   .nombre {
@@ -493,7 +493,7 @@ button {
 
   .portada {
     max-width: 100%;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 
   .nombre {
@@ -567,7 +567,7 @@ button {
   /* maxima resolucion para tablets (min: 576px approx.)*/
 
   .portada {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .nombre {
@@ -592,31 +592,19 @@ button {
 }
 
 @media screen and (max-width: 627px) {
-  /* resolucion de mobiles (min: 360px) */
-
   .icons img {
     margin-top: 10px;
     width: 50px;
     height: 50px;
-  }
-
-  .menu {
-    flex-wrap: wrap;
-
-    li {
-      margin: 0;
-    }
-    img {
-      margin: 0;
-    }
+    margin: 0;
   }
 
   .portada {
-    font-size: 28px;
+    font-size: 2.2rem;
   }
 
   .nombre {
-    font-size: 40px;
+    font-size: 3rem;
     letter-spacing: -6px; /*letras de nombre*/
     word-spacing: 8px; /*letras de nombre*/
   }
@@ -664,5 +652,65 @@ button {
         padding: 0;
       }
     }
+  }
+}
+
+@media screen and (max-width: 475px) {
+  /* resolucion de mobiles (min: 360px) */
+
+  .icons img {
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+  }
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .portada {
+    font-size: 1.5rem;
+  }
+
+  .nombre {
+    font-size: 2.3rem;
+    letter-spacing: -6px; /*letras de nombre*/
+    word-spacing: 8px; /*letras de nombre*/
+  }
+  .info {
+    padding: 5px;
+  }
+
+  .info-photo {
+    gap: 20px;
+  }
+
+  .photo {
+    text-align: center;
+    img {
+      width: 80%;
+    }
+  }
+
+  .sobre-mi {
+    font-size: 38px;
+    word-spacing: 6px;
+    margin: auto;
+  }
+
+  .info-photo p {
+    text-align: center;
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  .contenedor-formulario {
+    gap: 0;
+    font-size: 1.2rem;
+  }
+  button {
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
   }
 }
